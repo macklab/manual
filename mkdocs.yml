@@ -1,0 +1,57 @@
+site_name: Mack Lab Knowledge Base
+
+plugins:
+  - search
+  - awesome-pages
+
+theme: 
+  #logo: toni_white.png
+  name: material
+  palette:
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: teal
+      accent: amber
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: teal
+      accent: amber
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.instant
+    #- navigation.tabs
+    #- navigation.tabs.sticky
+    #- navigation.sections
+    - navigation.expand
+    #- navigation.top
+
+markdown_extensions:
+  - attr_list
+  - admonition
+  - tables
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+
+copyright: Copyright &copy; 2023 University of Toronto, Department of Psychology, Mack Lab 
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://www.github.com/macklab
+    #- icon: fontawesome/solid/map-location-dot
+    #  link: https://goo.gl/maps/S5vs23BHGHeHxcYY6
+#  version:
+#    provider: mike
