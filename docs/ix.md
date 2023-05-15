@@ -1,0 +1,103 @@
+# ix computation server
+
+## CPU cores
+ix has a 20-core processor with hyper threading. This means there are a total of 40 cores available to the system for running processes (hyper threading looks better than it is, a set of hyper threading cores runs about 120% faster than a set of cores without hyper threading). So, that might seem like a lot of cores until eight people are trying to run their analyses all at the same time. In general, it is good to limit the number of cores available to any process. This is accomplished in a lot of different ways. Here's a list (that we should keep adding to):
+* Environment variables: Setting OMP_NUM_THREADS in the command line ($ export OMP_NUM_THREADS=10) will some times work to limit the number of threads that can be opened by a single process. This requires that the process is multi-processor aware.
+* pymvpa: Multiple cores are critical for searchlight analyses. This requires two things, first setting OMP_NUM_THREADS equal to 1 in the terminal, and second running pymvpa searchlight code that sets nproc to some value in the range 4-10.
+* MRtrix has its own flag for setting the number of threads in all of this functions. Add -nthreads N, where N is 4-10, in any MRtrix command.
+
+
+# Managing projects on ix
+
+Projects are stored on ix in the /data and /data2 drives. Each project has a main directory (e.g., `/data2/<project name>`). Each project is managed by a specific user (or maybe a few users). To be a project manager, your user account will need sudo access. If you don't already have sudo access (or know what this is), ping Mike! 
+
+## File access policies on ix
+To encourage coding sharing and collaboration but also protect our project files on ix, we have implemented the following policies for file/directory access:
+1. All projects are world readable. This means any user on ix can view and copy files/directories from all projects.
+2. Project files/directories can be modified (i.e., create, update, delete operations) by only those users who are members of project groups. Each project will have its own unix group and users of that project will have to be added to the project group to modify the project files.
+3. Backups for project files are opt-in. Project managers will have to manually add project directories to the main ix backup list.
+
+## Setting up a new project
+
+New projects on ix require some setup. Follow the instructions below to manage a new project. Note: project management requires a user account with sudo access. If you don't already have sudo access, ping Mike! Also, all of the commands listed below assume you are logged into ix and using a terminal. The `$` represents a command line prompt
+
+### Create a project directory
+Each project will have its own base directory. All files/directories related to this project should be stored within this base directory. This would include subdirectories for pilots as well as the a project's core studies and analyses. Create a new project directory with the following command, where `<projectname>` is a placeholder for your project's name:
+
+```
+$ mkdir /data2/<projectname>
+```
+
+### Create a project group
+Your new project needs a user group! Note, you will need to use the `sudo` command to create a group. `sudo` gives you temporary elevated privileges while running a command and requires that you enter your password before the command is completed. To keep things easy, let's use the project's name for the project group. Here's how to create a group:
+
+```
+$ sudo groupadd <projectname>
+```
+
+You can check that the group has been created by running the following command (here we are using funclearn as an example project):
+
+```
+$ getent group | grep funclearn
+funclearn:x:1034:
+```
+You should see a line of text that shows the group name and its internal unique group ID (i.e., 1034 in the example). If you see this, your group has been created.
+
+## Set project directory's group and SetGID bit
+The project directory's group needs to be set to the project group:
+
+```
+$ sudo chgrp -R <projectname> /data2/<projectname>
+```
+
+A few notes for the command above: The order of the two arguments for `chgrp` are first the group name and second the directory path. Also, the `-R` flag says to additionally change the group for all files/directories contained in the directory. If you just created your project directory and it is empty, the `-R` flag isn't necessary.
+
+To check that your project directory's group has been changed, run this `ls` command (again, using funclearn as an example):
+
+```
+$ ls -ld /data2/funclearn
+drwxrwxr-x+ 47 mmack funclearn 4096 May 10 11:32 /data2/funclearn
+```
+
+Quick description of the output: The very first `d` says that this is a directory. The next string of characters define file permissions for the directory (`r`=read, `w`=write, `x`=execute) for the file owner (first three characters), file group (second three characters), and everyone else (last three characters). If you see the `r`, `w`, `x`, it means that permission for that user or group is set, otherwise (i.e., `-`) that access is not set. Skip over the number and then the next two columns list the directory owner (`mmack`) and group (`funclearn`). If you see your project name in the group column, your project directory's group is all set!
+
+Last thing to worry about here is to set the project directory's SetGID bit. "The what?", you ask. The SetGID bit on a directory, if set, means that any file or directory created within that directory will have the same group. This is key, we want all of the files/directories within your project directory to have the same project group. To do set the SetGID bit, run this command:
+
+```
+$ sudo chmod g+s /data2/<projectname>
+```
+
+Let's check what happened with that same `ls` command (using funclearn as an example):
+
+```
+$ ls -ld /data2/funclearn
+drwxrwsr-x+ 47 mmack funclearn 4096 May 10 11:32 /data2/funclearn
+```
+
+There's one change that should have happened: Look for the `s` in the group permission characters. The `s` has replaced the `x`. This means that SetGID bit has been set and you are in good shape.
+
+## Add users to the project group
+Adding users to the project group is necessary for them to be able to modify the project files/directories. To add a user to the project group, run this command (using funclearn as an example):
+
+```
+$ sudo usermod -a -G funclearn <username>
+```
+
+The `-a` flag says to append the group to the user's existing groups. The `-G` flag says to add the user to the group. The last argument is the user's username. You can check that the user has been added to the group by running this command (using funclearn as an example):
+
+```
+$ groups <username>
+```
+
+You should see the project group listed in the output. If you don't, try logging out and logging back in. You could also look at the output of the `getent` command from above to see if the user is listed in the project group:
+
+```
+$ getent group | grep funclearn
+funclearn:x:1034:mmack,<username>
+```
+
+Don't forget to add yourself to the project group!
+
+## Adding project files to ix backup
+
+In progress!
