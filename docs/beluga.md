@@ -5,7 +5,9 @@
 ## Logging into Beluga
 Beluga uses the same login credentials as all of the Alliance systems. You can access the login node with SSH via the command line or Visual Studio Code: 
 
-`ssh <username>@beluga.computecanada.ca`
+``` bash
+$ ssh <username>@beluga.computecanada.ca
+```
 
 Setting up [SSH keys through the CCDB](https://docs.alliancecan.ca/wiki/SSH_Keys) is highly recommended so you don't have to worry about entering passwords.
 
@@ -25,7 +27,7 @@ The `run_fmriprep.sh` script included here is an example of how to make the sing
 
 The script needs to be updated to reflect your dataset location and any specific parameters you need for fmriprep. At a minimum, you should change the path to your dataset location and confirm which version of fmriprep you want to use which are defined in the script's first two variables:
 
-``` title="run_fmriprep.sh"
+``` bash title="run_fmriprep.sh"
 #/bin/bash
 
 # location of your BIDS dataset (CHANGE THIS!)
@@ -63,11 +65,31 @@ singularity run --cleanenv \
 ```
 
 ## Submit fmriprep jobs
-To submit a job to Beluga's scheduler, we need a second script: `submit_fmriprep.sh`. 
+To submit a job to Beluga's scheduler, we need a second script: `submit_fmriprep.sh`: 
 
-https://github.com/macklab/macklab_tutorials/blob/030b874191035c0d26e59470671f617ed5d60fe2/beluga/submit_fmriprep.sh#L1-L19
+``` bash title='submit_fmriprep.sh'
+#!/bin/bash
+#SBATCH --account=def-mmack (MAYBE CHANGE THIS!)
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=10
+#SBATCH --mem-per-cpu=4G
+#SBATCH --time=2:00:00 (MAYBE CHANGE THIS!)
+#SBATCH --job-name=fmriprep
+#SBATCH --output=/project/def-mmack/mmack/funclearn/code/logs/fmriprep_%j.txt (CHANGE THIS!)
+#SBATCH --mail-user=<your email address> (CHANGE THIS!)
+#SBATCH --mail-type=ALL
 
-This script needs a bit more modification (look for the CHANGE THIS! comments in the script), specifically change:
+export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
+
+module load singularity
+
+# location of your BIDS dataset (CHANGE THIS!)
+PROJDIR=/project/def-mmack/mmack/funclearn
+
+${PROJDIR}/code/run_fmriprep.sh $1
+```
+
+This script needs a bit more modification (look for the CHANGE THIS! comments in the code above), specifically change:
 
 * `--account` to your PI's project name (e.g., def-mmack or def-mschlich)
 * `--time` to however much time your fmriprep run needs (see note below)
@@ -80,7 +102,10 @@ This script needs a bit more modification (look for the CHANGE THIS! comments in
 
 With both of scripts updated and copied to your BIDS dataset's code directory, you should be all set to submit a job. To do so, while logged into Beluga, go to your BIDS directory and run the submit_fmriprep.sh script with a specific participant number, e.g.:
 
-`sbatch code/submit_fmriprep.sh 100`
+``` bash
+$ sbatch code/submit_fmriprep.sh 100
+```
+
 
 If all goes well, a job will be added to the queue.
 
@@ -89,7 +114,9 @@ There are a few tools for checking the status of running jobs. To get general st
 
 You can also watch a running job by attaching to the node with `srun` and running htop. First, run `sq` to get the jobid (i.e., first column of the `sq` output). Then, run:
 
-`srun --jobid 123456 --pty htop -u $USER`
+``` bash
+$ srun --jobid 123456 --pty htop -u $USER
+```
 
 ## Job complete tasks
 Once your job finishes, copy the fmriprep output in the derivaties folder back to your computer, Arrakis/Trellis, or ix. Finally, remove those files from Beluga, especially if you're using lab project space!

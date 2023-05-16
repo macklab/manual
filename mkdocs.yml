@@ -26,11 +26,12 @@ theme:
         name: Switch to light mode
   features:
     - navigation.instant
-    #- navigation.tabs
-    #- navigation.tabs.sticky
-    #- navigation.sections
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
     - navigation.expand
-    #- navigation.top
+    #- navigation.indexes
+    - navigation.top
     - toc.follow
     - content.code.copy
 
@@ -40,6 +41,11 @@ markdown_extensions:
   - tables
   - pymdownx.details
   - pymdownx.snippets
+  - pymdownx.inlinehilite
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
   - pymdownx.emoji:
       emoji_index: !!python/name:materialx.emoji.twemoji
       emoji_generator: !!python/name:materialx.emoji.to_svg
