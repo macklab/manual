@@ -13,6 +13,7 @@ Projects are stored on ix in the /data and /data2 drives. Each project has a mai
 
 ### File access policies on ix
 To encourage coding sharing and collaboration but also protect our project files on ix, we have implemented the following policies for file/directory access:
+
 1. All projects are world readable. This means any user on ix can view and copy files/directories from all projects.
 2. Project files/directories can be modified (i.e., create, update, delete operations) by only those users who are members of project groups. Each project will have its own unix group and users of that project will have to be added to the project group to modify the project files.
 3. Backups for project files are opt-in. Project managers will have to manually add project directories to the main ix backup list.
