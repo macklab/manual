@@ -1,4 +1,4 @@
-# ix computation server
+# Compute server: ix
 
 ## CPU cores
 ix has a 20-core processor with hyper threading. This means there are a total of 40 cores available to the system for running processes (hyper threading looks better than it is, a set of hyper threading cores runs about 120% faster than a set of cores without hyper threading). So, that might seem like a lot of cores until eight people are trying to run their analyses all at the same time. In general, it is good to limit the number of cores available to any process. This is accomplished in a lot of different ways. Here's a list (that we should keep adding to):
