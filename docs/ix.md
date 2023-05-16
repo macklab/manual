@@ -7,28 +7,28 @@ ix has a 20-core processor with hyper threading. This means there are a total of
 * MRtrix has its own flag for setting the number of threads in all of this functions. Add -nthreads N, where N is 4-10, in any MRtrix command.
 
 
-# Managing projects on ix
+## Managing projects on ix
 
 Projects are stored on ix in the /data and /data2 drives. Each project has a main directory (e.g., `/data2/<project name>`). Each project is managed by a specific user (or maybe a few users). To be a project manager, your user account will need sudo access. If you don't already have sudo access (or know what this is), ping Mike! 
 
-## File access policies on ix
+### File access policies on ix
 To encourage coding sharing and collaboration but also protect our project files on ix, we have implemented the following policies for file/directory access:
 1. All projects are world readable. This means any user on ix can view and copy files/directories from all projects.
 2. Project files/directories can be modified (i.e., create, update, delete operations) by only those users who are members of project groups. Each project will have its own unix group and users of that project will have to be added to the project group to modify the project files.
 3. Backups for project files are opt-in. Project managers will have to manually add project directories to the main ix backup list.
 
-## Setting up a new project
+### Setting up a new project
 
 New projects on ix require some setup. Follow the instructions below to manage a new project. Note: project management requires a user account with sudo access. If you don't already have sudo access, ping Mike! Also, all of the commands listed below assume you are logged into ix and using a terminal. The `$` represents a command line prompt
 
-### Create a project directory
+#### Create a project directory
 Each project will have its own base directory. All files/directories related to this project should be stored within this base directory. This would include subdirectories for pilots as well as the a project's core studies and analyses. Create a new project directory with the following command, where `<projectname>` is a placeholder for your project's name:
 
 ```
 $ mkdir /data2/<projectname>
 ```
 
-### Create a project group
+#### Create a project group
 Your new project needs a user group! Note, you will need to use the `sudo` command to create a group. `sudo` gives you temporary elevated privileges while running a command and requires that you enter your password before the command is completed. To keep things easy, let's use the project's name for the project group. Here's how to create a group:
 
 ```
@@ -43,7 +43,7 @@ funclearn:x:1034:
 ```
 You should see a line of text that shows the group name and its internal unique group ID (i.e., 1034 in the example). If you see this, your group has been created.
 
-## Set project directory's group and SetGID bit
+### Set project directory's group and SetGID bit
 The project directory's group needs to be set to the project group:
 
 ```
@@ -76,7 +76,15 @@ drwxrwsr-x+ 47 mmack funclearn 4096 May 10 11:32 /data2/funclearn
 
 There's one change that should have happened: Look for the `s` in the group permission characters. The `s` has replaced the `x`. This means that SetGID bit has been set and you are in good shape.
 
-## Add users to the project group
+!!! note "Existing projects"
+
+    If you are managing a project with data files already on ix (e.g., you are updating an existing project), you will need to change the group for all of the files/directories in the project directory. To do this, run this command (using funclearn as an example):
+
+    ``` 
+    $ sudo chgrp -R funclearn /data2/funclearn
+    ```
+
+### Add users to the project group
 Adding users to the project group is necessary for them to be able to modify the project files/directories. To add a user to the project group, run this command (using funclearn as an example):
 
 ```
@@ -98,6 +106,6 @@ funclearn:x:1034:mmack,<username>
 
 Don't forget to add yourself to the project group!
 
-## Adding project files to ix backup
+### Adding project files to ix backup
 
 In progress!
