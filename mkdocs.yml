@@ -5,7 +5,7 @@ plugins:
   - awesome-pages
 
 theme: 
-  #logo: toni_white.png
+  logo: macklablogo.png
   name: material
   palette:
     # Palette toggle for light mode
