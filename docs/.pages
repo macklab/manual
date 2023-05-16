@@ -1,7 +1,9 @@
 nav:
     - Home: index.md
-    - Computing: computing.md
+    - Computing:
+        - computing.md
         - ix.md
         - arrakis.md
-        - hpc.md
+        - High-performance computing:
+            - Beluga: beluga.md
 

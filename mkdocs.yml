@@ -32,12 +32,14 @@ theme:
     - navigation.expand
     #- navigation.top
     - toc.follow
+    - content.code.copy
 
 markdown_extensions:
   - attr_list
   - admonition
   - tables
   - pymdownx.details
+  - pymdownx.snippets
   - pymdownx.emoji:
       emoji_index: !!python/name:materialx.emoji.twemoji
       emoji_generator: !!python/name:materialx.emoji.to_svg
