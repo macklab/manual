@@ -1,6 +1,7 @@
 nav:
     - index.md
-    - computing.md:
+    - Computing:
+        - computing.md
         - ix.md
         - arrakis.md
         - hpc.md
