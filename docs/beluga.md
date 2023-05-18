@@ -14,8 +14,8 @@ Setting up [SSH keys through the CCDB](https://docs.alliancecan.ca/wiki/SSH_Keys
 ## Initial setup
 We will use singularity images of fmriprep docker images which means initial setup is minimal. The main requirements are:
 
-1. **fmriprep singularity images:** Docker images of fmriprep versions have to be converted into Singularity images. If you want to use a new version of fmriprep, follow the instructions from the [Alliance](https://docs.alliancecan.ca/wiki/Singularity) and [fmriprep](https://fmriprep.org/en/1.5.8/singularity.html#preparing-a-singularity-image). Available images are stored on Beluga in `/project/def-mmack/mmack/software/containers`.
-2. **TemplateFlow:** TemplateFlow is a helper tool that allows programmatically access to standard neuroimaging templates on the fly (i.e., new templates are downloaded from the internet as needed). fmriprep depends on templateflow to work. This presents a problem for HPC systems as most setups, including Beluga, do not allow compute nodes to access the internet. As such, TemplateFlow images must be downloaded separately and made available to fmriprep. This repository is stored on Beluga in `/project/def-mmack/mmack/software/TemplateFlow`.
+1. **fmriprep singularity images:** Docker images of fmriprep versions have to be converted into Singularity images. If you want to use a new version of fmriprep, follow the instructions from the [Alliance](https://docs.alliancecan.ca/wiki/Singularity) and [fmriprep](https://fmriprep.org/en/1.5.8/singularity.html#preparing-a-singularity-image). Available images are stored on Beluga in `/project/def-mmack/software/containers`.
+2. **TemplateFlow:** TemplateFlow is a helper tool that allows programmatically access to standard neuroimaging templates on the fly (i.e., new templates are downloaded from the internet as needed). fmriprep depends on templateflow to work. This presents a problem for HPC systems as most setups, including Beluga, do not allow compute nodes to access the internet. As such, TemplateFlow images must be downloaded separately and made available to fmriprep. This repository is stored on Beluga in `/project/def-mmack/software/TemplateFlow`.
 
 ## Setup your BIDS dataset
 You will need to copy your BIDS dataset to Beluga. Copy to your lab's project space (e.g., /project/def-mmack/<username> or /project/def/mschlich/<username>, or see below for an alternative location!). You can use scp commands or sftp apps to do so. You will not want to transfer all of your participants' data at once so as to not fill up the 1TB of project space. But, you need a valid BIDS dataset, so should include code, derivatives, and sub-XXX directories as well as the CHANGES, README, dataset_description.json, participants.json, participants.tsv, and .bidsignore files. 
@@ -31,13 +31,13 @@ The script needs to be updated to reflect your dataset location and any specific
 #/bin/bash
 
 # location of your BIDS dataset (CHANGE THIS!)
-BIDSDIR=/project/def-mmack/mmack/funclearn
+BIDSDIR=/project/def-mmack/projects/funclearn
 
 # fmriprep version 
 fpver=20.2.7
 
 # location of fmriprep and templateflow
-SWDIR=/project/def-mmack/mmack/software
+SWDIR=/project/def-mmack/software
 TEMPLATEFLOW_HOME=${SWDIR}/templateflow
 # paths for singularity image
 export SINGULARITYENV_FS_LICENSE=/freesurfer_license.txt
@@ -84,7 +84,7 @@ export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
 module load singularity
 
 # location of your BIDS dataset (CHANGE THIS!)
-PROJDIR=/project/def-mmack/mmack/funclearn
+PROJDIR=/project/def-mmack/projects/funclearn
 
 ${PROJDIR}/code/run_fmriprep.sh $1
 ```
