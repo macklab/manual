@@ -123,12 +123,12 @@ To add your project to the backup list:
 1. Ping Mike with your project name and root directory (e.g., /data2/funclearn)
 2. Create a file named `backup_exclude.txt` in the root directory of your project. This file should contain a list of files/directories that you want to exclude from the backup. Each file/directory should be on its own line. Here's an example which includes all the noted exclusions from above:
 ```
-sub-*
-sourcedata
-tmp_dcm2bids
-derivatives/fmriprep
-derivatives/freesurfer
+/sub-*
+/sourcedata
+/tmp_dcm2bids
+/derivatives/fmriprep
+/derivatives/freesurfer
 ```
-The file/directory paths are relative to the project directory. For example, if you have a separate `bids` directory inside of your project directory, you would update the paths above to start with `bids/` (e.g., `bids/tmp_dcm2bids`) Also, the `*` is a wildcard character that matches any string. So, `sub-*` will match any file/directory that starts with `sub-` (i.e., the raw nifti files for each participant).
+The file/directory paths are relative to the project directory. For example, if you have a separate `bids` directory inside of your project directory for your BIDS related files, you would update the paths above to start with `/bids` (e.g., `/bids/tmp_dcm2bids`) Also, the `*` is a wildcard character that matches any string. So, `sub-*` will match any file/directory that starts with `sub-` (i.e., the raw nifti files for each participant).
 
 Important note: If your project directory is a BIDS root, you will need to add `backup_exclude.txt` to your `.bidsignore` file to pass BIDS validation checks.
