@@ -109,4 +109,26 @@ Don't forget to add yourself to the project group!
 
 ### Adding project files to ix backup
 
-In progress!
+ix has a backup system that runs every night. In order to keep things running smoothly, we have to limit the number of files that are backed up. If configured to do so, this system will backup all files/directories from a project except for those that ar easily created with standard pipelines. As policy, we will **not** backup the following files/directories:
+
+* Raw nifti files (e.g., sub-XXX in the root BIDS directory). These files are easily recreated from the raw DICOM files which are backed up to Arrakis or Trellis. 
+* fmriprep output. These files are easily recreated from the raw nifti files and the specific version of fmriprep you are using for your project.
+* Freesurfer output. These files are easily recreated from the raw nifti files and the specific version of freesurfer you are using (likely bundled with fmriprep).
+* Any temporary files/directories (e.g., tmp_dcm2bids)
+
+By default, we will include everyting else in the project directory in the backup. 
+
+To add your project to the backup list:
+
+1. Ping Mike with your project name and root directory (e.g., /data2/funclearn)
+2. Create a file named `backup_exclude.txt` in the root directory of your project. This file should contain a list of files/directories that you want to exclude from the backup. Each file/directory should be on its own line. Here's an example which includes all the noted exclusions from above:
+```
+sub-*
+sourcedata
+tmp_dcm2bids
+derivatives/fmriprep
+derivatives/freesurfer
+```
+The file/directory paths are relative to the project directory. For example, if you have a separate `bids` directory inside of your project directory, you would update the paths above to start with `bids/` (e.g., `bids/tmp_dcm2bids`) Also, the `*` is a wildcard character that matches any string. So, `sub-*` will match any file/directory that starts with `sub-` (i.e., the raw nifti files for each participant).
+
+Important note: If your project directory is a BIDS root, you will need to add `backup_exclude.txt` to your `.bidsignore` file to pass BIDS validation checks.
