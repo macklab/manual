@@ -132,3 +132,29 @@ To add your project to the backup list:
 The file/directory paths must be absolute paths. Also, the `*` is a wildcard character that matches any string. So, `sub-*` will match any file/directory that starts with `sub-` (i.e., the raw nifti files for each participant).
 
 Important note: If your project directory is a BIDS root, you will need to add `backup_exclude.txt` to your `.bidsignore` file to pass BIDS validation checks.
+
+## Docker on ix
+To ensure that our file permissions setup works with Docker, we need to specify in docker calls which user and group ID to use while that call is completed. Setting these options means that any files and directories that are created by the docker call will have the permissions of the user and group ID specified. If this isn't set, all files/directories are owned by root. Here's how to set the user and group IDs.
+
+First, you need your user ID and the project group ID for the data you are working on. These IDs are numbers associated with user and group accounts. An easy way to retrieve this is to run the `id` command, which lists both your user id (i.e., uid) and all the IDs for the groups you belong to:
+```
+$ id
+uid=1000(mmack) gid=1000(mmack) groups=1000(mmack),4(adm),24(cdrom),27(sudo),30(dip),46(plugdev),110(lxd),120(sambashare),1001(macklab),1011(bearholiday),1012(funclearn),1014(bighipp),1015(birthday),1016(clusterbake),1019(difflearn),1020(dtilearn),1021(eyelearn),1024(gardener),1027(videoschema),1030(em-hddm),1031(hippcircuit),1032(docker),1033(scenewheel),1034(aa_diffodd)
+```
+Second, you should add a --user argument to your docker calls. For example, if I wanted to run fmriprep via docker on the funclearn data, my docker call would look like this:
+```
+$ docker run -it --rm --user 1000:1012 \
+    -v /data/software/fs_license.txt:/opt/freesurfer/license.txt \
+    -v /data2/templateflow:/templateflow \
+    -v /data2/funclearn:/data:ro \
+    -v /data2/funclearn/derivatives/fmriprep:/out \
+    nipreps/fmriprep:23.1.4 \
+    /data /out participant \
+    --ignore slicetiming \
+    --participant_label 100 \
+    --nthreads 10 \
+    --notrack \
+    --skip-bids-validation \
+    --output-spaces MNI152NLin2009cAsym func
+```
+Note the `--user 1000:1012` argument in the first line. This sets the user to be me (uid=1000) and group to be funclearn (group ID = 1012) with these numbers pulled from the `id` command above. By settingi the `--user` argument, all files and directories created by the fmriprep call will have me as the owner and funclearn as the group. 
