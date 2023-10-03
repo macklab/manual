@@ -141,7 +141,7 @@ First, you need your user ID and the project group ID for the data you are worki
 $ id
 uid=1000(mmack) gid=1000(mmack) groups=1000(mmack),4(adm),24(cdrom),27(sudo),30(dip),46(plugdev),110(lxd),120(sambashare),1001(macklab),1011(bearholiday),1012(funclearn),1014(bighipp),1015(birthday),1016(clusterbake),1019(difflearn),1020(dtilearn),1021(eyelearn),1024(gardener),1027(videoschema),1030(em-hddm),1031(hippcircuit),1032(docker),1033(scenewheel),1034(aa_diffodd)
 ```
-Second, you should add a --user argument to your docker calls. For example, if I wanted to run fmriprep via docker on the funclearn data, my docker call would look like this:
+Second, you should add a `--user` argument to your docker calls. For example, if I wanted to run fmriprep via docker on the funclearn data, my docker call would look like this:
 ```
 $ docker run -it --rm --user 1000:1012 \
     -v /data/software/fs_license.txt:/opt/freesurfer/license.txt \
@@ -158,3 +158,6 @@ $ docker run -it --rm --user 1000:1012 \
     --output-spaces MNI152NLin2009cAsym func
 ```
 Note the `--user 1000:1012` argument in the first line. This sets the user to be me (uid=1000) and group to be funclearn (group ID = 1012) with these numbers pulled from the `id` command above. By settingi the `--user` argument, all files and directories created by the fmriprep call will have me as the owner and funclearn as the group. 
+
+NOTE: If you are using a newer version of fmriprep (ver 22.0 and newer), you must explictly define the name of the output directory inside the derivatives directory (e.g., `-v /data2/funclearn/derivatives/fmriprep:/out`). Prior to this, fmriprep defaulted to creating a directory named fmriprep. To make this all work well with our permissions setup, please create your fmriprep derivatives folder first before running fmriprep on your participants. If you don't, the output folder will be created by docker with root as owner and group. If this happens, all is not lost. You can change the group to your project group (e.g., `$ sudo chgrp -R funclearn /data2/funclearn/derivatives/fmriprep`), then subsequent fmriprep calls will work without write permission errors.
+
