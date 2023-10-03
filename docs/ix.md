@@ -6,6 +6,13 @@ ix has a 20-core processor with hyper threading. This means there are a total of
 * pymvpa: Multiple cores are critical for searchlight analyses. This requires two things, first setting OMP_NUM_THREADS equal to 1 in the terminal, and second running pymvpa searchlight code that sets nproc to some value in the range 4-10.
 * MRtrix has its own flag for setting the number of threads in all of this functions. Add -nthreads N, where N is 4-10, in any MRtrix command.
 
+## Accessing data drives over SMB
+
+Users can remote connect to ix data drives via SMB such that they are mounted locally through Finder (or god forbid Windows Explorer). To do so, you first need to create a SMB password on ix. Log in via ssh, then run the following command:
+```
+$ sudo smbpasswd -a <username>
+```
+Type in your smb password and remember it! Then, on your local computer, create a new remote connection to ix. Here's how to do it in Finder on MacOS: From the Go menu, select Connect to Server... (or hit commmand+k), type in "smb://ix.mack.psych.utoronto.ca" in the address bar on top, and click Connect. For the login information, select "Registered User" and use your ix username and the SMB password you just set. Check the box to remember the credentials so you don't have to put this in every time you connect. Then, pick which data drive you want to mount and you'll have direct access to your files on ix. 
 
 ## Managing projects on ix
 
