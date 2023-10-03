@@ -12,9 +12,9 @@ $ ssh <username>@beluga.computecanada.ca
 Setting up [SSH keys through the CCDB](https://docs.alliancecan.ca/wiki/SSH_Keys) is highly recommended so you don't have to worry about entering passwords.
 
 ## Initial setup
-We will use singularity images of fmriprep docker images which means initial setup is minimal. The main requirements are:
+We will use apptainer images of fmriprep docker images which means initial setup is minimal. The main requirements are:
 
-1. **fmriprep singularity images:** Docker images of fmriprep versions have to be converted into Singularity images. If you want to use a new version of fmriprep, follow the instructions from the [Alliance](https://docs.alliancecan.ca/wiki/Singularity) and [fmriprep](https://fmriprep.org/en/1.5.8/singularity.html#preparing-a-singularity-image). Available images are stored on Beluga in `/project/def-mmack/software/containers`.
+1. **fmriprep apptainer images:** Docker images of fmriprep versions have to be converted into Apptainer images. If you want to use a new version of fmriprep, follow the instructions from the [Alliance](https://docs.alliancecan.ca/wiki/Singularity) and [fmriprep](https://fmriprep.org/en/1.5.8/singularity.html#preparing-a-singularity-image). Available images are stored on Beluga in `/project/def-mmack/software/containers`.
 2. **TemplateFlow:** TemplateFlow is a helper tool that allows programmatically access to standard neuroimaging templates on the fly (i.e., new templates are downloaded from the internet as needed). fmriprep depends on templateflow to work. This presents a problem for HPC systems as most setups, including Beluga, do not allow compute nodes to access the internet. As such, TemplateFlow images must be downloaded separately and made available to fmriprep. This repository is stored on Beluga in `/project/def-mmack/software/TemplateFlow`.
 
 ## Setup your BIDS dataset
@@ -23,7 +23,7 @@ You will need to copy your BIDS dataset to Beluga. Copy to your lab's project sp
 An alternative is to use your scratch space for storing your BIDS dataset. Scratch is a huge but temporary disk space. Any files that are there for longer than 60 days without being modified will be deleted. If you use scratch, you have to be sure to copy results off of Beluga before they are deleted. On Beluga, scratch space is found under the /scratch path (e.g., `/scratch/mmack/`).
 
 ## Add and modify run_fmriprep.sh
-The `run_fmriprep.sh` script included here is an example of how to make the singularity call to run fmriprep on a single participant. This script should be copied into your BIDS dataset's code directory. 
+The `run_fmriprep.sh` script included here is an example of how to make the apptainer call to run fmriprep on a single participant. This script should be copied into your BIDS dataset's code directory. 
 
 The script needs to be updated to reflect your dataset location and any specific parameters you need for fmriprep. At a minimum, you should change the path to your dataset location and confirm which version of fmriprep you want to use which are defined in the script's first two variables:
 
@@ -34,25 +34,25 @@ The script needs to be updated to reflect your dataset location and any specific
 BIDSDIR=/project/def-mmack/projects/funclearn
 
 # fmriprep version 
-fpver=20.2.7
+fpver=23.1.4
 
 # location of fmriprep and templateflow
 SWDIR=/project/def-mmack/software
 TEMPLATEFLOW_HOME=${SWDIR}/templateflow
 # paths for singularity image
-export SINGULARITYENV_FS_LICENSE=/freesurfer_license.txt
-export SINGULARITYENV_TEMPLATEFLOW_HOME=/templateflow
+export APPTAINERENV_FS_LICENSE=/freesurfer_license.txt
+export APPTAINERENV_TEMPLATEFLOW_HOME=/templateflow
 # create temporary directory
 mkdir -p ${SCRATCH}/tmp
 
 # run fmriprep
-singularity run --cleanenv \
+apptainer run --cleanenv \
   -B ${SWDIR}/freesurfer_license.txt:/freesurfer_license.txt \
   -B ${TEMPLATEFLOW_HOME:-$HOME/.cache/templateflow}:/templateflow \
   -B ${BIDSDIR}:/data \
   -B ${BIDSDIR}/derivatives:/out \
   -B ${SCRATCH}/tmp:/work \
-  ${SWDIR}/containers/fmriprep-${fpver}.simg \
+  ${SWDIR}/containers/fmriprep-${fpver}.sif \
   /data /out \
   participant \
   --participant-label $1 \
@@ -81,7 +81,7 @@ To submit a job to Beluga's scheduler, we need a second script: `submit_fmriprep
 
 export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
 
-module load singularity
+module load apptainer
 
 # location of your BIDS dataset (CHANGE THIS!)
 PROJDIR=/project/def-mmack/projects/funclearn
