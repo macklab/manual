@@ -12,7 +12,7 @@ Users can remote connect to ix data drives via SMB such that they are mounted lo
 ```
 $ sudo smbpasswd -a <username>
 ```
-Type in your smb password and remember it! Then, on your local computer, create a new remote connection to ix. Here's how to do it in Finder on MacOS: From the Go menu, select Connect to Server... (or hit commmand+k), type in "smb://ix.mack.psych.utoronto.ca" in the address bar on top, and click Connect. For the login information, select "Registered User" and use your ix username and the SMB password you just set. Check the box to remember the credentials so you don't have to put this in every time you connect. Then, pick which data drive you want to mount and you'll have direct access to your files on ix. 
+Type in your smb password and remember it! Then, you need to be added to the sambashare group. Run the `groups` command from the command line to see the list of groups you belong to. If sambashare is not in the list, ask Mike or a grad student to add you. Finally, on your local computer, create a new remote connection to ix. Here's how to do it in Finder on MacOS: From the Go menu, select Connect to Server... (or hit commmand+k), type in "smb://ix.mack.psych.utoronto.ca" in the address bar on top, and click Connect. For the login information, select "Registered User" and use your ix username and the SMB password you just set. Check the box to remember the credentials so you don't have to put this in every time you connect. Pick which data drive you want to mount and you'll have direct access to your files on ix. 
 
 ## Managing projects on ix
 
