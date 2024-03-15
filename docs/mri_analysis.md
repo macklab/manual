@@ -1,6 +1,6 @@
-# MRI Analysis
+# Overview
 
-Included here are resource and tips for best practices within the lab. There are many great resources available online for MRI analysis, check the links below!
+Included here are resources and tips for best practices within the lab. There are many general-purpose resources available online for MRI analysis, check the links below!
 
 ## Lab-specific resources
 * [MRI quality control](mri_qc.md)
