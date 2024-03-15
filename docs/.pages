@@ -6,6 +6,6 @@ nav:
         - arrakis.md
         - High-performance computing:
             - Beluga: beluga.md
-    - MRI analysis:
+    - MRI analysis: mri_analysis.md
         - MRI quality control: mri_qc.md
 
