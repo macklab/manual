@@ -1,11 +1,11 @@
 nav:
     - Home: index.md
-    - Computing:
+    - Computing: computing.md
         - computing.md
         - ix.md
         - arrakis.md
         - High-performance computing:
             - Beluga: beluga.md
     - MRI analysis:
-        - Quality control: mri_qc.md
+        - MRI quality control: mri_qc.md
 
