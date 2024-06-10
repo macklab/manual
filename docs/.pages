@@ -7,6 +7,7 @@ nav:
         - High-performance computing:
             - hpc.md
             - beluga.md
+            - narval.md
     - MRI analysis: 
         - mri_analysis.md
         - mri_qc.md
