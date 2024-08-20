@@ -2,6 +2,7 @@
 
 ## CPU cores
 ix has a 20-core processor with hyper threading. This means there are a total of 40 cores available to the system for running processes (hyper threading looks better than it is, a set of hyper threading cores runs about 120% faster than a set of cores without hyper threading). So, that might seem like a lot of cores until eight people are trying to run their analyses all at the same time. In general, it is good to limit the number of cores available to any process. This is accomplished in a lot of different ways. Here's a list (that we should keep adding to):
+
 * Environment variables: Setting OMP_NUM_THREADS in the command line ($ export OMP_NUM_THREADS=10) will some times work to limit the number of threads that can be opened by a single process. This requires that the process is multi-processor aware.
 * pymvpa: Multiple cores are critical for searchlight analyses. This requires two things, first setting OMP_NUM_THREADS equal to 1 in the terminal, and second running pymvpa searchlight code that sets nproc to some value in the range 4-10.
 * MRtrix has its own flag for setting the number of threads in all of this functions. Add -nthreads N, where N is 4-10, in any MRtrix command.
