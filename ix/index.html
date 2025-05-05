@@ -1,0 +1,1194 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../computing/">
+      
+      
+        <link rel="next" href="../arrakis/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.12">
+    
+    
+      
+        <title>Compute server: ix - Mack Lab Knowledge Base</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.2afb09e1.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#compute-server-ix" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Mack Lab Knowledge Base" class="md-header__button md-logo" aria-label="Mack Lab Knowledge Base" data-md-component="logo">
+      
+  <img src="../macklablogo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Mack Lab Knowledge Base
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Compute server: ix
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../computing/" class="md-tabs__link">
+          
+  
+  
+  Computing
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../mri_analysis/" class="md-tabs__link">
+          
+  
+  
+  MRI analysis
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Mack Lab Knowledge Base" class="md-nav__button md-logo" aria-label="Mack Lab Knowledge Base" data-md-component="logo">
+      
+  <img src="../macklablogo.png" alt="logo">
+
+    </a>
+    Mack Lab Knowledge Base
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Computing
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Computing
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../computing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Compute server: ix
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Compute server: ix
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#cpu-cores" class="md-nav__link">
+    <span class="md-ellipsis">
+      CPU cores
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#accessing-data-drives-over-smb" class="md-nav__link">
+    <span class="md-ellipsis">
+      Accessing data drives over SMB
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#managing-projects-on-ix" class="md-nav__link">
+    <span class="md-ellipsis">
+      Managing projects on ix
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Managing projects on ix">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#file-access-policies-on-ix" class="md-nav__link">
+    <span class="md-ellipsis">
+      File access policies on ix
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setting-up-a-new-project" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setting up a new project
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Setting up a new project">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-a-project-directory" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create a project directory
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-a-project-group" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create a project group
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set-project-directorys-group-and-setgid-bit" class="md-nav__link">
+    <span class="md-ellipsis">
+      Set project directory's group and SetGID bit
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-users-to-the-project-group" class="md-nav__link">
+    <span class="md-ellipsis">
+      Add users to the project group
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adding-project-files-to-ix-backup" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adding project files to ix backup
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#docker-on-ix" class="md-nav__link">
+    <span class="md-ellipsis">
+      Docker on ix
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../arrakis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Data server: Arrakis
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    High-performance computing
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            High-performance computing
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hpc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    High-performance computing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../narval/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Using Narval HPC system
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../beluga/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Using Beluga HPC system for fmriprep
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    MRI analysis
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            MRI analysis
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mri_analysis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mri_qc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Best practices for MRI quality control
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mri_ashs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ASHS
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#cpu-cores" class="md-nav__link">
+    <span class="md-ellipsis">
+      CPU cores
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#accessing-data-drives-over-smb" class="md-nav__link">
+    <span class="md-ellipsis">
+      Accessing data drives over SMB
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#managing-projects-on-ix" class="md-nav__link">
+    <span class="md-ellipsis">
+      Managing projects on ix
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Managing projects on ix">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#file-access-policies-on-ix" class="md-nav__link">
+    <span class="md-ellipsis">
+      File access policies on ix
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setting-up-a-new-project" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setting up a new project
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Setting up a new project">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-a-project-directory" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create a project directory
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-a-project-group" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create a project group
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set-project-directorys-group-and-setgid-bit" class="md-nav__link">
+    <span class="md-ellipsis">
+      Set project directory's group and SetGID bit
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-users-to-the-project-group" class="md-nav__link">
+    <span class="md-ellipsis">
+      Add users to the project group
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adding-project-files-to-ix-backup" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adding project files to ix backup
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#docker-on-ix" class="md-nav__link">
+    <span class="md-ellipsis">
+      Docker on ix
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="compute-server-ix">Compute server: ix</h1>
+<h2 id="cpu-cores">CPU cores</h2>
+<p>ix has a 20-core processor with hyper threading. This means there are a total of 40 cores available to the system for running processes (hyper threading looks better than it is, a set of hyper threading cores runs about 120% faster than a set of cores without hyper threading). So, that might seem like a lot of cores until eight people are trying to run their analyses all at the same time. In general, it is good to limit the number of cores available to any process. This is accomplished in a lot of different ways. Here's a list (that we should keep adding to):</p>
+<ul>
+<li>Environment variables: Setting OMP_NUM_THREADS in the command line ($ export OMP_NUM_THREADS=10) will some times work to limit the number of threads that can be opened by a single process. This requires that the process is multi-processor aware.</li>
+<li>pymvpa: Multiple cores are critical for searchlight analyses. This requires two things, first setting OMP_NUM_THREADS equal to 1 in the terminal, and second running pymvpa searchlight code that sets nproc to some value in the range 4-10.</li>
+<li>MRtrix has its own flag for setting the number of threads in all of this functions. Add -nthreads N, where N is 4-10, in any MRtrix command.</li>
+</ul>
+<h2 id="accessing-data-drives-over-smb">Accessing data drives over SMB</h2>
+<p>Users can remote connect to ix data drives via SMB such that they are mounted locally through Finder (or god forbid Windows Explorer). To do so, you first need to create a SMB password on ix. Log in via ssh, then run the following command:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>$ sudo smbpasswd -a &lt;username&gt;
+</span></code></pre></div>
+Type in your smb password and remember it! Then, you need to be added to the sambashare group. Run the <code>groups</code> command from the command line to see the list of groups you belong to. If sambashare is not in the list, ask Mike or a grad student to add you. Finally, on your local computer, create a new remote connection to ix. Here's how to do it in Finder on MacOS: From the Go menu, select Connect to Server... (or hit commmand+k), type in "smb://ix.mack.psych.utoronto.ca" in the address bar on top, and click Connect. For the login information, select "Registered User" and use your ix username and the SMB password you just set. Check the box to remember the credentials so you don't have to put this in every time you connect. Pick which data drive you want to mount and you'll have direct access to your files on ix. </p>
+<h2 id="managing-projects-on-ix">Managing projects on ix</h2>
+<p>Projects are stored on ix in the /data and /data2 drives. Each project has a main directory (e.g., <code>/data2/&lt;project name&gt;</code>). Each project is managed by a specific user (or maybe a few users). To be a project manager, your user account will need sudo access. If you don't already have sudo access (or know what this is), ping Mike! </p>
+<h3 id="file-access-policies-on-ix">File access policies on ix</h3>
+<p>To encourage coding sharing and collaboration but also protect our project files on ix, we have implemented the following policies for file/directory access:</p>
+<ol>
+<li>All projects are world readable. This means any user on ix can view and copy files/directories from all projects.</li>
+<li>Project files/directories can be modified (i.e., create, update, delete operations) by only those users who are members of project groups. Each project will have its own unix group and users of that project will have to be added to the project group to modify the project files.</li>
+<li>Backups for project files are opt-in. Project managers will have to manually add project directories to the main ix backup list.</li>
+</ol>
+<h3 id="setting-up-a-new-project">Setting up a new project</h3>
+<p>New projects on ix require some setup. Follow the instructions below to manage a new project. Note: project management requires a user account with sudo access. If you don't already have sudo access, ping Mike! Also, all of the commands listed below assume you are logged into ix and using a terminal. The <code>$</code> represents a command line prompt</p>
+<h4 id="create-a-project-directory">Create a project directory</h4>
+<p>Each project will have its own base directory. All files/directories related to this project should be stored within this base directory. This would include subdirectories for pilots as well as the a project's core studies and analyses. Create a new project directory with the following command, where <code>&lt;projectname&gt;</code> is a placeholder for your project's name:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>$ mkdir /data2/&lt;projectname&gt;
+</span></code></pre></div>
+<h4 id="create-a-project-group">Create a project group</h4>
+<p>Your new project needs a user group! Note, you will need to use the <code>sudo</code> command to create a group. <code>sudo</code> gives you temporary elevated privileges while running a command and requires that you enter your password before the command is completed. To keep things easy, let's use the project's name for the project group. Here's how to create a group:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>$ sudo groupadd &lt;projectname&gt;
+</span></code></pre></div>
+<p>You can check that the group has been created by running the following command (here we are using funclearn as an example project):</p>
+<p><div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>$ getent group | grep funclearn
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>funclearn:x:1034:
+</span></code></pre></div>
+You should see a line of text that shows the group name and its internal unique group ID (i.e., 1034 in the example). If you see this, your group has been created.</p>
+<h3 id="set-project-directorys-group-and-setgid-bit">Set project directory's group and SetGID bit</h3>
+<p>The project directory's group needs to be set to the project group:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>$ sudo chgrp -R &lt;projectname&gt; /data2/&lt;projectname&gt;
+</span></code></pre></div>
+<p>A few notes for the command above: The order of the two arguments for <code>chgrp</code> are first the group name and second the directory path. Also, the <code>-R</code> flag says to additionally change the group for all files/directories contained in the directory. If you just created your project directory and it is empty, the <code>-R</code> flag isn't necessary.</p>
+<p>To check that your project directory's group has been changed, run this <code>ls</code> command (again, using funclearn as an example):</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>$ ls -ld /data2/funclearn
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>drwxrwxr-x+ 47 mmack funclearn 4096 May 10 11:32 /data2/funclearn
+</span></code></pre></div>
+<p>Quick description of the output: The very first <code>d</code> says that this is a directory. The next string of characters define file permissions for the directory (<code>r</code>=read, <code>w</code>=write, <code>x</code>=execute) for the file owner (first three characters), file group (second three characters), and everyone else (last three characters). If you see the <code>r</code>, <code>w</code>, <code>x</code>, it means that permission for that user or group is set, otherwise (i.e., <code>-</code>) that access is not set. Skip over the number and then the next two columns list the directory owner (<code>mmack</code>) and group (<code>funclearn</code>). If you see your project name in the group column, your project directory's group is all set!</p>
+<p>Last thing to worry about here is to set the project directory's SetGID bit. "The what?", you ask. The SetGID bit on a directory, if set, means that any file or directory created within that directory will have the same group. This is key, we want all of the files/directories within your project directory to have the same project group. To do set the SetGID bit, run this command:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>$ sudo chmod g+s /data2/&lt;projectname&gt;
+</span></code></pre></div>
+<p>Let's check what happened with that same <code>ls</code> command (using funclearn as an example):</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>$ ls -ld /data2/funclearn
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>drwxrwsr-x+ 47 mmack funclearn 4096 May 10 11:32 /data2/funclearn
+</span></code></pre></div>
+<p>There's one change that should have happened: Look for the <code>s</code> in the group permission characters. The <code>s</code> has replaced the <code>x</code>. This means that SetGID bit has been set and you are in good shape.</p>
+<div class="admonition note">
+<p class="admonition-title">Existing projects</p>
+<p>If you are managing a project with data files already on ix (e.g., you are updating an existing project), you will need to change the group for all of the files/directories in the project directory. To do this, run this command (using funclearn as an example):</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>$ sudo chgrp -R funclearn /data2/funclearn
+</span></code></pre></div>
+</div>
+<h3 id="add-users-to-the-project-group">Add users to the project group</h3>
+<p>Adding users to the project group is necessary for them to be able to modify the project files/directories. To add a user to the project group, run this command (using funclearn as an example):</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>$ sudo usermod -a -G funclearn &lt;username&gt;
+</span></code></pre></div>
+<p>The <code>-a</code> flag says to append the group to the user's existing groups. The <code>-G</code> flag says to add the user to the group. The last argument is the user's username. You can check that the user has been added to the group by running this command (using funclearn as an example):</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>$ groups &lt;username&gt;
+</span></code></pre></div>
+<p>You should see the project group listed in the output. If you don't, try logging out and logging back in. You could also look at the output of the <code>getent</code> command from above to see if the user is listed in the project group:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>$ getent group | grep funclearn
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>funclearn:x:1034:mmack,&lt;username&gt;
+</span></code></pre></div>
+<p>Don't forget to add yourself to the project group!</p>
+<h3 id="adding-project-files-to-ix-backup">Adding project files to ix backup</h3>
+<p>ix has a backup system that runs every night. In order to keep things running smoothly, we have to limit the number of files that are backed up. If configured to do so, this system will backup all files/directories from a project except for those that ar easily created with standard pipelines. As policy, we will <strong>not</strong> backup the following files/directories:</p>
+<ul>
+<li>Raw nifti files (e.g., sub-XXX in the root BIDS directory). These files are easily recreated from the raw DICOM files which are backed up to Arrakis or Trellis. </li>
+<li>fmriprep output. These files are easily recreated from the raw nifti files and the specific version of fmriprep you are using for your project.</li>
+<li>Freesurfer output. These files are easily recreated from the raw nifti files and the specific version of freesurfer you are using (likely bundled with fmriprep).</li>
+<li>Any temporary files/directories (e.g., tmp_dcm2bids)</li>
+</ul>
+<p>By default, we will include everyting else in the project directory in the backup. </p>
+<p>To add your project to the backup list:</p>
+<ol>
+<li>Ping Mike with your project name and root directory (e.g., /data2/funclearn)</li>
+<li>Create a file named <code>backup_exclude.txt</code> in the root directory of your project. This file should contain a list of files/directories that you want to exclude from the backup. Each file/directory should be on its own line. Here's an example from funclearn which includes all the noted exclusions from above:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>/data2/funclearn/sub-*/
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>/data2/funclearn/sourcedata/
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>/data2/funclearn/tmp_dcm2bids/
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>/data2/funclearn/derivatives/fmriprep/
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>/data2/funclearn/derivatives/freesurfer/
+</span></code></pre></div>
+The file/directory paths must be absolute paths. Also, the <code>*</code> is a wildcard character that matches any string. So, <code>sub-*</code> will match any file/directory that starts with <code>sub-</code> (i.e., the raw nifti files for each participant).</li>
+</ol>
+<p>Important note: If your project directory is a BIDS root, you will need to add <code>backup_exclude.txt</code> to your <code>.bidsignore</code> file to pass BIDS validation checks.</p>
+<h2 id="docker-on-ix">Docker on ix</h2>
+<p>To ensure that our file permissions setup works with Docker, we need to specify in docker calls which user and group ID to use while that call is completed. Setting these options means that any files and directories that are created by the docker call will have the permissions of the user and group ID specified. If this isn't set, all files/directories are owned by root. Here's how to set the user and group IDs.</p>
+<p>First, you need your user ID and the project group ID for the data you are working on. These IDs are numbers associated with user and group accounts. An easy way to retrieve this is to run the <code>id</code> command, which lists both your user id (i.e., uid) and all the IDs for the groups you belong to:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>$ id
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>uid=1000(mmack) gid=1000(mmack) groups=1000(mmack),4(adm),24(cdrom),27(sudo),30(dip),46(plugdev),110(lxd),120(sambashare),1001(macklab),1011(bearholiday),1012(funclearn),1014(bighipp),1015(birthday),1016(clusterbake),1019(difflearn),1020(dtilearn),1021(eyelearn),1024(gardener),1027(videoschema),1030(em-hddm),1031(hippcircuit),1032(docker),1033(scenewheel),1034(aa_diffodd)
+</span></code></pre></div>
+Second, you should add a <code>--user</code> argument to your docker calls. For example, if I wanted to run fmriprep via docker on the funclearn data, my docker call would look like this:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>$ docker run -it --rm --user 1000:1012 \
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>    -v /data/software/fs_license.txt:/opt/freesurfer/license.txt \
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>    -v /data2/templateflow:/templateflow \
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>    -v /data2/funclearn:/data:ro \
+</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>    -v /data2/funclearn/derivatives/fmriprep:/out \
+</span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>    nipreps/fmriprep:23.1.4 \
+</span><span id="__span-14-7"><a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a>    /data /out participant \
+</span><span id="__span-14-8"><a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a>    --ignore slicetiming \
+</span><span id="__span-14-9"><a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a>    --participant_label 100 \
+</span><span id="__span-14-10"><a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a>    --nthreads 10 \
+</span><span id="__span-14-11"><a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a>    --notrack \
+</span><span id="__span-14-12"><a id="__codelineno-14-12" name="__codelineno-14-12" href="#__codelineno-14-12"></a>    --skip-bids-validation \
+</span><span id="__span-14-13"><a id="__codelineno-14-13" name="__codelineno-14-13" href="#__codelineno-14-13"></a>    --output-spaces MNI152NLin2009cAsym func
+</span></code></pre></div>
+Note the <code>--user 1000:1012</code> argument in the first line. This sets the user to be me (uid=1000) and group to be funclearn (group ID = 1012) with these numbers pulled from the <code>id</code> command above. By settingi the <code>--user</code> argument, all files and directories created by the fmriprep call will have me as the owner and funclearn as the group. </p>
+<p>NOTE: If you are using a newer version of fmriprep (ver 22.0 and newer), you must explictly define the name of the output directory inside the derivatives directory (e.g., <code>-v /data2/funclearn/derivatives/fmriprep:/out</code>). Prior to this, fmriprep defaulted to creating a directory named fmriprep. To make this all work well with our permissions setup, please create your fmriprep derivatives folder first before running fmriprep on your participants. If you don't, the output folder will be created by docker with root as owner and group. If this happens, all is not lost. You can change the group to your project group (e.g., <code>$ sudo chgrp -R funclearn /data2/funclearn/derivatives/fmriprep</code>), then subsequent fmriprep calls will work without write permission errors.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025 University of Toronto, Department of Psychology, Mack Lab
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.github.com/macklab" target="_blank" rel="noopener" title="www.github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "..", "features": ["navigation.instant", "navigation.instant.progress", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.top", "toc.follow", "content.code.copy"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+    
+  </body>
+</html>
