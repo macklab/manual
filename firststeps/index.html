@@ -1,0 +1,992 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../computing/">
+      
+      
+        <link rel="next" href="../hpc/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>First steps in data processing - Mack Lab Knowledge Base</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#first-steps-in-data-processing" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Mack Lab Knowledge Base" class="md-header__button md-logo" aria-label="Mack Lab Knowledge Base" data-md-component="logo">
+      
+  <img src="../macklablogo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Mack Lab Knowledge Base
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              First steps in data processing
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../computing/" class="md-tabs__link">
+          
+  
+  
+  Computing
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../mri_analysis/" class="md-tabs__link">
+          
+  
+  
+  MRI analysis
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Mack Lab Knowledge Base" class="md-nav__button md-logo" aria-label="Mack Lab Knowledge Base" data-md-component="logo">
+      
+  <img src="../macklablogo.png" alt="logo">
+
+    </a>
+    Mack Lab Knowledge Base
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Computing
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Computing
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../computing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ix/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Compute server: ix
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../arrakis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data server: Arrakis
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    High-performance computing
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    High-performance computing
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hpc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    High-performance computing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../narval/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Using Narval HPC system
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MRI analysis
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    MRI analysis
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mri_analysis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mri_qc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Best practices for MRI quality control
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mri_ashs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ASHS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#transfer-data-from-tonis-echo-to-arrakis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Transfer data from ToNI's echo to arrakis
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#transfer-data-from-arrakis-to-ix" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Transfer data from arrakis to ix
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#convert-dicoms-to-bids-format-nifti-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Convert DICOMs to BIDS-format Nifti files
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#update-json-sidecar-files-to-link-fieldmaps-to-bold" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Update JSON sidecar files to link fieldmaps to BOLD
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#run-fmriprep" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Run fmriprep
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recap
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="first-steps-in-data-processing">First steps in data processing</h1>
+<p>Congratulations, you collected your first MRI scan! Now what? This tutorial walk through some of the very first steps of transferring and processing your MRI data. First, let's talk about our setup:</p>
+<p><img alt="" src="../images/setup.png" /></p>
+<p>Data generated at ToNI is first reconstructed and stored on the scanner control computer. It is then internally copied to ToNI's file server which is named echo. We have to retrieve this data to put on our computer systems: arrakis, the lab data backup NAS; and ix, our computation server. I've made this a two-step process to ensure data backup and integrity, first copying from echo to arrakis, then second, copying from arrakis to ix.</p>
+<h2 id="transfer-data-from-tonis-echo-to-arrakis">Transfer data from ToNI's echo to arrakis</h2>
+<p>Before we transfer data, let's talk about the data itself.</p>
+<blockquote>
+<p>Our scanner outputs DICOM images. DICOM is a standard medical image format (first released in 1985!) that consists of meta information in a header block and the actual image data. The header information allows for multiple images to be grouped into different datasets and volumes within datasets. It is super flexible, but actually not that usefulor efficient for the type of analyses we like to perform. We will get back to this in a later step. Our scanner outputs DICOMs on a slice-by-slice or volume-by-volume basis. For most anatomical scans, you will find a separate DICOM file for each slice of each scan. If you have a T2 anatomical scan that consists of 42 slices, you should expect the scanner to output 42 DICOM files for that specific scan. For BOLD data, you typically get one DICOM file for each volume collected (e.g., you collect 142 time points, you have 142 DICOMs).</p>
+</blockquote>
+<p>We need the DICOMs on echo on our computer systems. I prefer to transfer data from echo to arrakis through arrakis' web interface (i.e., webterface). If you are on the Mack Lab network or connected via VPN, you can log in to Arrakis and pull up File Station. In the Tools menu, select Remove Connection and then Connection Setup.  In the window that opens, put in the log in information for echo (i.e., the IP/hostname, your account name and password) and click Done. If the connection is successful, it'll be added the left sidebar in File Station under the SFTP subheading. Clicking that will connect to echo and give you access to the DICOMs we have collected at ToNI. Data from a ToNI session is stored in the corresponding project directory (e.g., CATBRAIN/S10_20180306). Once you've found your session directory, right click on it and select "Copy to...":</p>
+<p><img alt="" src="../images/copy_dicoms.png" width="526" /></p>
+<p>In the window that pops up, select Arrakis/MackLabDrive/MRIdata/dicoms/\&lt;your project&gt;. If you haven't yet created a project folder here, you can click the create folder button and make one. Copying the data will take awhile! One session is often multiple GBs of data. Once it is done copying, you should find in the specified location on arrakis several folders (one for each scan) that each contain multiple DICOM files. Success!</p>
+<p><img alt="" src="../images/files.png" width="782" /></p>
+<h2 id="transfer-data-from-arrakis-to-ix">Transfer data from arrakis to ix</h2>
+<p>Before we can transfer the dicoms to ix, we need to do some setup on ix. First log into ix using SSH in Terminal/iTerm/Command Prompt on your local machine:</p>
+<p><code>$ ssh -XY &lt;username&gt;@ix.mack.psych.utoronto.ca</code></p>
+<p>We have a conda environment (mri-preproc) that includes all the apps and scripts we need for initial processing. Activate it!</p>
+<p><code>$ conda activate mri-preproc</code></p>
+<p>Create a project folder and change into it:</p>
+<p><code>$ mkdir -p /data2/tutorials/firststeps</code></p>
+<p><code>$ cd /data2/tutorials/firststeps</code></p>
+<div class="admonition tip">
+<p class="admonition-title">Project permissions</p>
+<p>A key step in creating your project is setting project permissions. Take a quick side adventure on the <a href="https://macklab.github.io/manual/ix/#managing-projects-on-ix">ix documentation</a> to set this up.</p>
+</div>
+<p>Then, create a BIDS-formatted directory structure. Luckily, there's a handy script for this:</p>
+<p><code>$ dcm2bids_scaffold</code></p>
+<p>This script will create all the necessary folders and files for a valid BIDS directory. You can now modify these files and add to the folders, which we will do right away! Let's copy over the DICOMs on arrakis to our new ix project folder. The scaffold script above creates a folder named <code>sourcedata</code>, this is where we want to put the DICOMs. Arrakis is remotely mounted on ix, so we can easily copy over the data:</p>
+<p><code>$ cp -r /mnt/arrakis/MRIdata/dicoms/firststeps/S10_20180306 sourcedata/.</code></p>
+<p>Again, this will take a few minutes (remember, lots of data here). Once it is done, you [<strong>must</strong>]{.underline} check that you've copied over the right number of files. There's a very handy command from MRtrix (a diffusion weighting imaging toolbox) for pulling info from DICOMs called <code>mrinfo</code>. You can call it with a path to a folder containing a multiple folders of DICOMs:</p>
+<p><code>$ mrinfo sourcedata/S10_20180306</code></p>
+<p>This command sorts through all the DICOMs in the specified directory and displays info about the grouped together datasets:</p>
+<p><img alt="" src="../images/mrinfo.png" /></p>
+<p>You can quickly check that you've copied over all the scans you were expecting and that you have the correct number of DICOMs for each scan. If you want to know more about a specific scan, type in the scan number (listed in the far left column) at the prompt:</p>
+<p><img alt="" src="../images/mrinfo_2.png" /></p>
+<h2 id="convert-dicoms-to-bids-format-nifti-files">Convert DICOMs to BIDS-format Nifti files</h2>
+<p>As noted above, DICOMs don't suffice for our analysis pipelines. We need to convert the DICOMs into Nifti files. And, we need to organize our participants' data into BIDS format. Again, luckily, there's a command for that! It is called <code>dcm2bids</code>. This command requires several inputs, many of which don't change across participants. To ensure that I don't mistakenly change or omit one of these inputs, I use a wrapper script which is found on ix here: <code>/data2/tutorials/firststeps/code/run_dcm2bids.sh</code>.</p>
+<p>The tricky part of dcm2bids is defining a configuration file. This file tells dcm2bids how to find your different scans and organize them into their appropriate folders. To be honest, this is a bit of a mess. It relies on defining patterns for identifying scans based on their filenames and header information. For a more thorough explanation, check out <a href="https://andysbrainbook.readthedocs.io/en/latest/OpenScience/OS/BIDS_Overview.html#understanding-dcm2bidss-configuration-file">Andy's Brain Book section on dcm2bids</a>.</p>
+<p>Once you have your configuration file created (and I would highly recommend modifying one that works for a different dataset), you can run <code>dcm2bids</code> with the <code>run_dcm2bids.sh</code> script by providing both path to the participant's dicoms and the participant code:</p>
+<p><code>$ code/run_dcm2bids.sh sourcedata/S10_20180306 010</code></p>
+<p>Once finished, you'll find a new participant directory that includes all the nifti files (file extension .nii.gz) for the different scans organized into BIDS specific directories:</p>
+<p><img alt="" src="../images/sbjdir.png" width="479" /></p>
+<h2 id="update-json-sidecar-files-to-link-fieldmaps-to-bold">Update JSON sidecar files to link fieldmaps to BOLD</h2>
+<p>You may have noticed that every nifti file above has a corresponding file ending in .json. These are JSON sidecar files that include all the header information for the DICOM files. Nifti files great for our type of analyses, but the Nifti format doesn't have nearly as much header information as the DICOM format. Thus, when we convert from DICOM to Nifti, we lose a lot of important header info. <code>dcm2bids</code> is smart enough to dump that information into these JSON sidecar files. And, BIDS format requires these sidecar files exist and are appropriately formatted.</p>
+<p>We need to update one field in JSON sidecar files for the fieldmaps that links them to the BOLD scans. We collect fieldmaps to correct for inhomogeneities in the magnetic field that impact BOLD measures. fmriprep and other BIDS-compliant apps can automatically perform this correction, but we need to specify which BOLD scans go with the fieldmaps with the IntendedFor field (check out that link to Andy's Brain Book above to learn more about this). I wrote a script that does this, just pass it the participant number:</p>
+<p><code>$ code/update_json.sh 010</code></p>
+<h2 id="run-fmriprep">Run fmriprep</h2>
+<p>Now we are ready to run fmriprep! Like dcm2bids, fmriprep has many inputs, many more in fact. To reduce errors and improve reproducibility, I created a wrapper script found here: <code>/data2/tutorials/firststeps/code/run_fmriprep.sh</code>.</p>
+<blockquote>
+<p>fmriprep is very flexible and has many options. The parameters in my wrapper script are quite general and really shouldn't be considered a one-size-fits-all solution. If you use this script, make sure to update it to include the options you need for your project.</p>
+</blockquote>
+<p>To run fmriprep, call the run script noted above with the participant number:</p>
+<p><code>$ code/run_fmriprep.sh 010</code></p>
+<p>Once it is finished (on ix this takes about 7 hours per participant when using 10 threads), you'll find the results in the derivatives folder:</p>
+<p><img alt="" src="../images/fmriprep.png" width="250" /></p>
+<h2 id="recap">Recap</h2>
+<p>At this point, you've managed to transfer and convert DICOMs and perform minimal preprocessing for one participant. Woohoo! Now, repeat this for all of your participants. These first steps of an MRI pipeline have been designed for:</p>
+<ol>
+<li>
+<p><strong>Data integrity</strong> - Multiple copies of raw data are stored in multiple locations (echo, arrakis, and an automatic backup of arrakis on the department's central backup server)</p>
+</li>
+<li>
+<p><strong>Analytic consistency and reproducibility</strong> - Creating wrapper scripts for each step (dcm2bids, updating JSON files, fmriprep) ensures the same processing is performed for each participant.</p>
+</li>
+<li>
+<p><strong>Processing QC</strong> - Each step offers a point to ensure data transfer and processing are correct. Checking file counts and sizes, quickly analyzing DICOM contents with <code>mrinfo</code>, and visual checks on outputs are key, but you have to remember to do it for every participant!</p>
+</li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 University of Toronto, Department of Psychology, Mack Lab
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.github.com/macklab" target="_blank" rel="noopener" title="www.github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.instant.progress", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.top", "toc.follow", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>
