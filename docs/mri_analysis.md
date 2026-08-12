@@ -5,7 +5,7 @@ Included here are resources and tips for best practices within the lab. There ar
 ## Lab-specific resources
 * [MRI quality control](mri_qc.md)
 * [Automatic segmentation of hippocampal subfields (ASHS)](mri_ashs.md)
-* fMRIPrep on ix and [Beluga](beluga.md)
+* fMRIPrep on ix and [Narval](narval.md)
 
 ## External resources
 * [Andy's Brain Book](https://andysbrainbook.readthedocs.io/en/latest/#)
