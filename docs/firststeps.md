@@ -36,6 +36,10 @@ Create a project folder and change into it:
 
 `$ cd /data2/tutorials/firststeps`
 
+!!! tip Project permissions
+
+    A key step in creating your project is setting project permissions. Take a quick side adventure on the [ix documentation](https://macklab.github.io/manual/ix/#managing-projects-on-ix) to set this up.
+
 Then, create a BIDS-formatted directory structure. Luckily, there's a handy script for this:
 
 `$ dcm2bids_scaffold`
