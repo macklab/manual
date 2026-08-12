@@ -6,7 +6,7 @@ Congratulations, you collected your first MRI scan! Now what? This tutorial walk
 
 Data generated at ToNI is first reconstructed and stored on the scanner control computer. It is then internally copied to ToNI's file server which is named echo. We have to retrieve this data to put on our computer systems: arrakis, the lab data backup NAS; and ix, our computation server. I've made this a two-step process to ensure data backup and integrity, first copying from echo to arrakis, then second, copying from arrakis to ix.
 
-## 1. Transfer data from ToNI's echo to arrakis
+## Transfer data from ToNI's echo to arrakis
 
 Before we transfer data, let's talk about the data itself.
 
@@ -20,7 +20,7 @@ In the window that pops up, select Arrakis/MackLabDrive/MRIdata/dicoms/\<your pr
 
 ![](images/files.png){width="782"}
 
-## 2. Transfer data from arrakis to ix
+## Transfer data from arrakis to ix
 
 Before we can transfer the dicoms to ix, we need to do some setup on ix. First log into ix using SSH in Terminal/iTerm/Command Prompt on your local machine:
 
@@ -94,7 +94,7 @@ Once it is finished (on ix this takes about 7 hours per participant when using 1
 
 ## Recap
 
-At this point, you've managed to transfer and convert DICOMs and perform minimal preprocessing for one participant. Woohoo! Now, repeat this for all of your participants. These first steps of a MRI pipeline have been designed for:
+At this point, you've managed to transfer and convert DICOMs and perform minimal preprocessing for one participant. Woohoo! Now, repeat this for all of your participants. These first steps of an MRI pipeline have been designed for:
 
 1. **Data integrity** - Multiple copies of raw data are stored in multiple locations (echo, arrakis, and an automatic backup of arrakis on the department's central backup server)
 
