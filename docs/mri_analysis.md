@@ -3,6 +3,7 @@
 Included here are resources and tips for best practices within the lab. There are many general-purpose resources available online for MRI analysis, check the links below!
 
 ## Lab-specific resources
+* [First steps in processing data from ToNI](firststeps.md)
 * [MRI quality control](mri_qc.md)
 * [Automatic segmentation of hippocampal subfields (ASHS)](mri_ashs.md)
 * fMRIPrep on ix and [Narval](narval.md)
